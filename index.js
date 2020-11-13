@@ -5,7 +5,7 @@ Object.values(levels).forEach(level => {
     console[level](...args)
   }
 })
-export const contextLog = contextName => {
+const contextLog = contextName => {
   Object.values(levels).forEach(level => {
     const op = {}
     op[level] = (...args) => {
@@ -13,5 +13,9 @@ export const contextLog = contextName => {
     }
   })
   return op
+}
+export {
+  levels,
+  contextLog
 }
 export default op

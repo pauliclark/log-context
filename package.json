@@ -6,11 +6,19 @@
   "repository": "https://github.com/pauliclark/log-context.git",
   "author": "pauliclark <paul@piclark.uk>",
   "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "yarn nodemon sample.js DEV"
+  },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1"
+    "eslint-plugin-promise": "^4.2.1",
+    "nodemon": "^2.0.6"
   }
 }
