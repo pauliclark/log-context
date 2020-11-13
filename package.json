@@ -1,0 +1,16 @@
+{
+  "name": "log-context",
+  "version": "1.0.0",
+  "description": "Coloured and Contextual console log",
+  "main": "index.js",
+  "repository": "https://github.com/pauliclark/log-context.git",
+  "author": "pauliclark <paul@piclark.uk>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}
