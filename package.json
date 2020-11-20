@@ -1,6 +1,6 @@
 {
   "name": "log-context",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Coloured and Contextual console log",
   "main": "index.js",
   "repository": "https://github.com/pauliclark/log-context.git",
