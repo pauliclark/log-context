@@ -9,7 +9,7 @@ Coloured and Contextual console log
     levels,
     log,
     contextLog
-  } from 'log-context'
+  } from '@pauliclark/log-context'
 
   const myLog = contextLog('My context name')
 
@@ -34,7 +34,7 @@ Coloured and Contextual console log
 Once a contextual log is created, the console messages will be printed prefixed with the contextual name.
 
 ```
-  import { contextLog } from 'log-context'
+  import { contextLog } from '@pauliclark/log-context'
 
   const myLog = contextLog('My context name')
 
@@ -53,7 +53,7 @@ Once a contextual log is created, the console messages will be printed prefixed 
   import {
     levels,
     log
-  } from 'log-context'
+  } from '@pauliclark/log-context'
 
   log.setLogLevel(levels.TRACE)
 ```
@@ -64,7 +64,7 @@ The same method is also available in context logs.
 ## Set the colours and padding
 
 ```
-  import {log, colours, styles, backgrounds} from 'log-context'
+  import {log, colours, styles, backgrounds} from '@pauliclark/log-context'
 
   log.styles.log = [styles.reset, colours.green, backgrounds.white ]
 ```
@@ -81,7 +81,7 @@ The styles can be different for each of levels.
 The context name displayed can also be adjusted...
 
 ```
-  import {log} from 'log-context'
+  import {log} from '@pauliclark/log-context'
 
   log.styles.context = [styles.bold, colours.white, backgrounds.red ]
 ```
