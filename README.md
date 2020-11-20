@@ -33,6 +33,20 @@ Coloured and Contextual console log
 
 Once a contextual log is created, the console messages will be printed prefixed with the contextual name.
 
+```
+  import { contextLog } from 'log-context'
+
+  const myLog = contextLog('My context name')
+  
+  myLog.log('my context log message')
+  myLog.debug('my context debug message')
+  myLog.info('my context info message')
+  myLog.trace('my context trace message')
+  myLog.warn('my context warn message')
+  myLog.error('my context error message')
+
+```
+
 ## Setting the log level
 
 ```
