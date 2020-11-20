@@ -1,9 +1,13 @@
-const vals = [
-  'log', 'debug', 'trace', 'warn', 'info', 'error'
+const keys = [
+  'log', 'debug', 'info', 'trace', 'warn', 'error'
 ]
 const levels = {}
-vals.forEach(level => {
+keys.forEach(level => {
   levels[level.toUpperCase()] = level
 })
 
+export {
+  levels,
+  keys
+}
 export default levels
