@@ -37,7 +37,7 @@ Once a contextual log is created, the console messages will be printed prefixed 
   import { contextLog } from 'log-context'
 
   const myLog = contextLog('My context name')
-  
+
   myLog.log('my context log message')
   myLog.debug('my context debug message')
   myLog.info('my context info message')
@@ -64,11 +64,9 @@ The same method is also available in context logs.
 ## Set the colours and padding
 
 ```
-  import {log} from 'log-context'
+  import {log, colours, styles, backgrounds} from 'log-context'
 
-  log.styles.log.background = 'red'
-  log.styles.log.color = 'white'
-  log.styles.log.padding = '1px'
+  log.styles.log = [styles.reset, colours.green, backgrounds.white ]
 ```
 
 The styles can be different for each of levels.
@@ -85,6 +83,36 @@ The context name displayed can also be adjusted...
 ```
   import {log} from 'log-context'
 
-  log.styles.context.background = 'red'
-  log.styles.context.color = 'white'
+  log.styles.context = [styles.bold, colours.white, backgrounds.red ]
 ```
+
+Available colours / backgrounds are:
+
+ - black
+ - red
+ - green
+ - yellow
+ - blue
+ - magenta
+ - cyan
+ - white
+ - gray
+ - grey
+ - brightRed
+ - brightGreen
+ - brightYellow
+ - brightBlue
+ - brightMagenta
+ - brightCyan
+ - brightWhite
+
+Available styles are:
+
+ - reset
+ - bold
+ - dim
+ - italic
+ - underline
+ - inverse
+ - hidden
+ - strikethrough

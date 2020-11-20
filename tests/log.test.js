@@ -25,7 +25,7 @@ Object.keys(levels).forEach(level => {
     testLog[levels[level]](testMessage)
     expect(console[levels[level]].mock.calls.length).toBe(1)
     expect(console[levels[level]].mock.calls[0][0]).toContain(contextName.toUpperCase())
-    expect(console[levels[level]].mock.calls[0][2]).toContain(testMessage)
+    expect(console[levels[level]].mock.calls[0][1]).toContain(testMessage)
   })
 })
 
@@ -46,4 +46,8 @@ test(`log not performed if level below set level of ${levels.TRACE}`, () => {
   expect(console.debug.mock.calls.length).toBe(0)
   expect(console.warn.mock.calls.length).toBe(1)
   expect(console.trace.mock.calls.length).toBe(1)
+})
+test('parse error', () => {
+  log.error(new Error('Sample error log'))
+  expect(console.error.mock.calls.length).toBe(1)
 })

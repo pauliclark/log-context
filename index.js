@@ -1,4 +1,15 @@
 import { keys, levels } from './levels.js'
+// eslint-disable-next-line no-unused-vars
+import colors from 'colors'
+import { colours, backgrounds, styles } from './colours.js'
+const defaultLevelStyles = {
+  log: [styles.reset, colours.gray],
+  debug: [styles.reset, colours.cyan],
+  info: [styles.reset, colours.blue],
+  trace: [styles.reset, colours.gray],
+  warn: [styles.reset, colours.yellow],
+  error: [styles.reset, colours.red]
+}
 const op = {}
 Object.values(levels).forEach(level => {
   op[level] = (...args) => {
@@ -10,29 +21,38 @@ class Log {
     this.context = context
     this.logLevel = logLevel
     this.styles = {
-      context: {
-        background: 'black',
-        color: 'white',
-        padding: '1px 3px'
-      }
+      context: [styles.bold, backgrounds.blue, colours.brightWhite]
     }
     keys.forEach(level => {
-      this.styles[level] = {
-        background: 'none',
-        color: 'black',
-        padding: '1px'
-      }
+      this.styles[level] = defaultLevelStyles[level]
     })
     keys.forEach(level => {
+      const styleString = (str) => {
+        const styles = [...(this.styles[level] || [])]
+        while (styles.length) str = str ? str[styles.pop()] : ''
+        return str
+      }
       this[level] = function (...args) {
         const cargs = []
         while (args.length) {
           const arg = args.pop()
-          cargs.unshift(...((typeof arg === 'string') ? [`%c${arg}`, `background:${this.styles[level].background};color:${this.styles[level].color};padding:${this.styles[level].padding};`] : arg))
+          if (arg && arg.message) {
+            cargs.unshift(...[styleString(arg.message), arg])
+          } else if (typeof arg !== 'string') {
+            cargs.unshift(arg)
+          } else {
+            cargs.unshift(styleString(arg))
+          }
         }
+        let contextName = this.context ? ` ${this.context.toUpperCase()} ` : null
+        if (this.context) {
+          const styles = [...(this.styles.context || [])]
+          while (styles.length) contextName = contextName[styles.pop()]
+        }
+
         if (keys.indexOf(level) >= keys.indexOf(this.logLevel)) {
           if (this.context) {
-            console[level](`%c${this.context.toUpperCase()}`, `background:${this.styles.context.background};color:${this.styles.context.color};padding:${this.styles.context.padding};`, ...cargs)
+            console[level](contextName, ...cargs)
           } else {
             console[level](...cargs)
           }
@@ -55,6 +75,7 @@ const log = baseLog
 export {
   levels,
   log,
-  contextLog
+  contextLog,
+  colours, backgrounds, styles
 }
 export default baseLog

@@ -1,6 +1,12 @@
-import log from './index.js'
+import { log, contextLog } from './index.js'
 log.info('Sample info log')
 log.log('Sample log log')
 log.warn('Sample warn log')
 log.trace(new Error('Sample trace log'))
 log.error(new Error('Sample error log'))
+const testLog = contextLog('sample')
+testLog.info('Sample info log')
+testLog.log('Sample log log')
+testLog.warn('Sample warn log')
+testLog.trace(new Error('Sample trace log'))
+testLog.error(new Error('Sample error log'))
