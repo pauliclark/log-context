@@ -116,3 +116,4 @@ Available styles are:
  - inverse
  - hidden
  - strikethrough
+ 
