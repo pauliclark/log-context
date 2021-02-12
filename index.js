@@ -32,7 +32,7 @@ class Log {
         while (styles.length) str = str ? str[styles.pop()] : ''
         return str
       }
-      this[level] = function (...args) {
+      this[level] = (...args) => {
         const cargs = []
         while (args.length) {
           const arg = args.pop()
